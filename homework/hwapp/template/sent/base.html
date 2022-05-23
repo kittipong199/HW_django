@@ -7,14 +7,21 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Cover Template · Bootstrap v5.0</title>
+    <title>{% block title %}Project for sent HomeWork{% endblock title %}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
-
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     
 
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
+    <link href="{% static 'bootstrap/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/cover.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/from-validation.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.grid.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/css/bootstrap.reboot.css' %}" rel="stylesheet">
+
+
 
     <style>
       .bd-placeholder-img {
@@ -41,11 +48,14 @@
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
   <header class="mb-auto">
     <div>
-      <h3 class="float-md-start mb-0">Cover</h3>
+      <h3 class="float-md-start mb-0">Kittipong 77001</h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="#">Home</a>
-        <a class="nav-link" href="#">Features</a>
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link active" aria-current="page" href="{% url 'home-page' %}">Home</a>
+        <a class="nav-link" href="#">about us</a>
+        
+        <a class="nav-link" href="{% url 'contect-page' %}">Contact</a>
+        <a class="nav-link" href="{% url 'login-page' %}">Login</a>
+       
       </nav>
     </div>
   </header>

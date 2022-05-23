@@ -1,0 +1,45 @@
+{%extends 'sent/base.html'%}
+
+{% block title %} เข้าสู่ระบบ {% endblock title %}
+
+{% block content %}
+<center>
+    <h1>เข้าสู่ระบบ</h1>
+</center>
+{% if message %}
+
+<h3>{{ message }}</h3>
+{% else %}
+<div class="container-fluid vh-100" style="margin-bottom:300px">
+    <div class="" style="margin-bottom:200px">
+        <div class="rounded d-flex justify-content-center">
+            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-gradient">
+                <form action="">
+                    <div class="p-4">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-person-plus-fill text-white"></i>Email</span>
+                            <input type="text" class="form-control" placeholder="Username">
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text bg-primary"><i
+                                    class="bi bi-key-fill text-white"></i>Password</span>
+                            <input type="password" class="form-control" placeholder="password">
+                        </div>
+                        
+                        <button class="btn btn-primary text-center mt-2" type="submit">
+                            Login
+                        </button>
+                        <p class="text-center mt-5">Don't have an account?
+                            <a class="text-primary" href="{% url 'register-page' %}">Sign Up</a>
+                        </p>
+                        <a class="text-center text-primary" href="">Forgot your password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{%endblock content %}
