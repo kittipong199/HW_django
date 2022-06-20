@@ -1,0 +1,75 @@
+{%extends 'sent/base.html'%}
+
+{% block title %} Add Product {% endblock title %}
+
+{% block content %}
+
+<!-- title = models.CharField(max_length=200)
+    description = models.TextField(null=True, blank=True)
+    cost = models.DecimalField(max_digits=10,decimal_places=2,null=True , blank=True)
+    quantity = models.IntegerField(null=True, blank=True)
+    instock = models.BooleanField(default=True) -->
+    <center>
+        <h1>Add Product</h1>
+    </center>
+
+   
+
+    {% if warning %}
+        <div class="alert alert-danger" role="alert">
+       <p>{{warning}}</p>
+        </div>
+
+    {% endif %}
+
+
+    {% if message %}
+
+        <h3>{{ message }}</h3>
+    {% else %}
+        <form method="POST" enctype="multipart/form-data">  <!--enctype="multipart/form-data" ใส่ในกรณีที่ต้องการอัพโหลดไฟล์-->
+                {% csrf_token %}
+
+               
+                    <div class="form-group">
+                    <label for="title">ชื่อสินค้า</label>
+                    <input type="text" class="form-control" id="title" name="title"  required>
+                    </div><br>
+
+                    <div class="form-group">
+                        <label for="description">รายละเอียด:</label>
+                        <textarea  class="form-control" rows="5" id="description" name="description"  placeholder="กรอกรายละเอียดสินค้า" required></textarea>
+                      </div><br>
+                      
+
+                      <div class="form-group">
+                        <label for="price">ราคา</label>
+                        <input type="text" class="form-control" id="price" name="price"  required>
+                        </div><br>
+                    
+                    <div class="form-group">
+                            <label for="quantity">จำนวน</label>
+                            <input type="text" class="form-control" id="quantity" name="quantity" value="1" required>
+                            </div><br>
+                        
+                      
+
+
+                        
+                            <div class="form-group">
+                                <label for="picture">รูปภาพสินค้า</label>
+                                <input type="file" class="form-control-file" id="picture" name="picture">
+                            </div><br>
+
+
+                            <div class="form-group">
+                                <label for="specfile">ไฟล์ spec สินค้า</label>
+                                <input type="file" class="form-control-file" id="specfile" name="specfile">
+                            </div>
+                        
+
+                <button type="submit" class="btn btn-primary">เพิ่มสินค้า</button>
+        </form>
+{% endif %}
+
+{%endblock content %}

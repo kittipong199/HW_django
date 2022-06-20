@@ -1,5 +1,5 @@
-{%extends 'sent/base.html'%}
-
+{% extends 'sent/base.html' %}
+{% load static %}
 {% block title %} เข้าสู่ระบบ {% endblock title %}
 
 {% block content %}
@@ -10,10 +10,11 @@
 
 <h3>{{ message }}</h3>
 {% else %}
+<br>
 <div class="container-fluid vh-100" style="margin-bottom:300px">
     <div class="" style="margin-bottom:200px">
         <div class="rounded d-flex justify-content-center">
-            <div class="col-md-4 col-sm-12 shadow-lg p-5 bg-gradient">
+            <div class="col-md-10 col-sm-12 shadow-lg p-5 bg-gradient">
                 <form action="">
                     <div class="p-4">
                         <div class="input-group mb-3">
