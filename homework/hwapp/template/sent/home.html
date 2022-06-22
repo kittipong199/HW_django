@@ -3,7 +3,7 @@
 {% block title %}Project for sent HomeWork{% endblock title %}
 
 {% block content %}
-<main>
+
 
     <!doctype html>
 <html lang="en">
@@ -41,18 +41,46 @@
 
 
     <main>
+      {% comment %}
+      <img src="{% static 'image/Apple_iPhone-13.jpg' %}" alt="My image">
+    
       
+        <center>
+          {% for pd in allproduct %}
+                <h1>{{pd.title}}</h1>
+                {% if pd.picture %}
+                <img src="{{pd.picture.url}}" width="400">
+                {% endif %}
+                <p>
+                  รายละเอียด: {{pd.description}}<br>
+                  {% if pd.specfile %}
+                  ไฟล์สเปค: <a href="{{pd.specfile.url}}">Download</a><br>
+                  {% endif  %}
+                  
+                  ราคา {{pd.cost}} บาท <br>
+                  เหลือในสต็อก: {{pd.quantity}}
+                </p>
+                <hr>
+          {% endfor %}
+  
+        </center>
+        {% endcomment %}
      
       <div class="album py-5 bg-light">
-        <div class="container">
-    
+        <div class="container ">
+          {% for row in allrow %}
+        
           <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-    
+              {% for c in row  %}
+              <div class="card mb-4 rounded-6 shadow-sm ">
+                {% if c.picture %}
+                <img class=" card-img-top" src="{{c.picture.url}}" width="400" height="400">
+                {% else %}
+                    <img  class=" card-img-top" src="{% static 'image/defaultphone.jpg' %}" width="400" height="400">
+              {% endif %}
                 <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text text-dark">{{c.title}}</p>
                   <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                       <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
@@ -62,45 +90,16 @@
                   </div>
                 </div>
               </div>
+              {% endfor %}
             </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-    
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card shadow-sm">
-                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-    
-                <div class="card-body">
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">9 mins</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-    
-          
+            
           </div>
+         
+          
         </div>
+        {% endfor %}
       </div>
-    
+     
     </main>
 
 

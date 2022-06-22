@@ -20,9 +20,16 @@ from django.urls import path,include
 
 from django.contrib.auth import views
 from hwapp.views import Login
+# Add Static config for image fieldd
+from django.contrib.staticfiles.urls import static , staticfiles_urlpatterns
+from . import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('hwapp.urls')),
     path('login/', Login,name='login'),
     path('logout/', views.LogoutView.as_view(template_name='sent/logout.html'),name='logout'),
 ]
+
+# Add Static config for image fieldd
+urlpatterns += staticfiles_urlpatterns()
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

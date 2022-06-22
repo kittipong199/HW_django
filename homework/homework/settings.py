@@ -123,6 +123,9 @@ STATICFILES_DIRS = [
     r'C:\Art\sendHomeWork\summers\ProjectDjango\homework',
 ]
 
+
+MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -132,4 +135,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # เกี่ยวกับระบบ login
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home-page'
-LOGOUT_REDIRECT_URL = 'login'
+LOGOUT_REDIRECT_URL = 'home-page'
